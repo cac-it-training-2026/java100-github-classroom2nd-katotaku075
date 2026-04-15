@@ -52,5 +52,4 @@ public class Patisserie {
 		System.out.println("をお買い上げですね。\n承りました。");
 
 	}
-
 }
