@@ -54,13 +54,45 @@ public class WarehouseManager {
 		int[] ABKosanArray1 = new int[5];
 		int[] ABKosanArray2 = new int[5];
 
-
 		//ここに重複チェックおよび値の代入処理を記述する①(1～5)
 
+		int inputNum = 0;
+		boolean loopFlag = false;
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			do {
+				loopFlag = false;
+				inputNum = (int) (Math.random() * 10) % 5 + 1;
+
+				for (int j = 0; j < ABKosanArray1.length; j++) {
+					if (ABKosanArray1[j] == inputNum) {
+						loopFlag = true;
+						break;
+					}
+				}
+
+			} while (loopFlag);
+
+			ABKosanArray1[i] = inputNum;
+		}
 
 		//ここに重複チェックおよび値の代入処理を記述する②(6～10)
 
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			do {
+				loopFlag = false;
+				inputNum = (int) (Math.random() * 10) % 5 + 6;
 
+				for (int j = 0; j < ABKosanArray2.length; j++) {
+					if (ABKosanArray2[j] == inputNum) {
+						loopFlag = true;
+						break;
+					}
+				}
+
+			} while (loopFlag);
+
+			ABKosanArray2[i] = inputNum;
+		}
 		System.out.println("E主任：");
 		System.out.println("AB興産から新たに預かった荷物と以前から預かっている荷物の");
 		System.out.println("中身を確認してください。\n");
@@ -88,11 +120,66 @@ public class WarehouseManager {
 		System.out.println("E主任：");
 		System.out.println("その二つの荷物を奇数群、偶数群で入れ替えてください。\n");
 
-
-
 		//ここに奇数群(ABKosanArray1)と偶数群(ABKosanArray2)に振り分ける処理を記述する。
+		int[] odd = new int[ABKosanArray1.length];
+		int[] even = new int[ABKosanArray2.length];
+		int oddIndex = 0;
+		int evenIndex = 0;
+		//ABKosanArray1を偶数ならeven配列へ、奇数ならodd配列へ
+		//それぞれ、oddIndexとevenIndexを利用して代入の際にかぶることなく順番に
+		//		組み込めるようにしてある
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			if (ABKosanArray1[i] % 2 == 0) {
+				even[evenIndex] = ABKosanArray1[i];
+				evenIndex++;
+			} else {
+				odd[oddIndex] = ABKosanArray1[i];
+				oddIndex++;
+			}
+		}
+		//ABKosanArray2を偶数ならeven配列へ、奇数ならodd配列へ
+		//それぞれ、oddIndexとevenIndexを利用して代入の際にかぶることなく順番に
+		//		組み込めるようにしてある
 
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			if (ABKosanArray2[i] % 2 == 0) {
+				even[evenIndex] = ABKosanArray2[i];
+				evenIndex++;
+			} else {
+				odd[oddIndex] = ABKosanArray2[i];
+				oddIndex++;
+			}
+		}
+		//odd配列をABKosanArray1に、even配列をABKosanArray2に戻す
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			ABKosanArray1[i] = odd[i];
+		}
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			ABKosanArray2[i] = even[i];
+		}
 
+		//		模範解答
+		//		int evenNumberIndex = 0;
+		//		int oddNumberIndex = 0;
+		//		int changeTimes = 0;
+		//		do {
+		//			for (int i = evenNumberIndex; i < ABKosanArray1.length; i++) {
+		//				if (ABKosanArray1[i] % 2 == 0) {
+		//					evenNumberIndex = i;
+		//					break;
+		//				}
+		//			}
+		//			for (int i = oddNumberIndex; i < ABKosanArray2.length; i++) {
+		//				if (ABKosanArray2[i] % 2 != 0) {
+		//					int temp = ABKosanArray1[evenNumberIndex];
+		//					ABKosanArray1[evenNumberIndex] = ABKosanArray2[i];
+		//					ABKosanArray2[i] = temp;
+		//					oddNumberIndex = i;
+		//					changeTimes++;
+		//					break;
+		//				}
+		//			}
+		//		} while (changeTimes < 2);
 
 		System.out.println("Yさん：");
 		System.out.println("はい、入れ替えました。");
