@@ -99,10 +99,25 @@ public class WarehouseManager {
 
 		System.out.println("\n\nでした。直してきます...\n");
 
-
 		//ここに適切な値の挿入処理を記述する
+		for (int i = 0; i < wonderfulArray.length; i++) {
 
-
+			if (wonderfulArray[i] == 0) {
+				do {
+					loopFlag = false;
+					insertNum = (int) (Math.random() * 10) % 5 + 1;
+					for (int j = 0; j < wonderfulArray.length; j++) {
+						if (wonderfulArray[j] == insertNum) {
+							loopFlag = true;
+							break;
+						}
+					}
+					if (!loopFlag) {
+						wonderfulArray[i] = insertNum;
+					}
+				} while (loopFlag);
+			}
+		}
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");
 

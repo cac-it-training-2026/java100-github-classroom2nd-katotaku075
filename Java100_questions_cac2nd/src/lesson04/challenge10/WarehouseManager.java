@@ -61,12 +61,62 @@ public class WarehouseManager {
 
 	public static void main(String[] args) {
 
-
 		//ここに必要な配列の宣言を記述する。
+		int nullFlag;
+		int InputNum;
 
+		int[] boxC = new int[5];
+		int[] boxD = new int[5];
+		int[] boxE = new int[5];
 
 		//ここに配列に値を代入する処理を記述する。(要素はランダム)
 
+		for (int i = 0; i < boxC.length; i++) {
+
+			nullFlag = (int) (Math.random() * 10) % 4;
+			if (nullFlag == 0) {
+				boxC[i] = 0;
+			} else {
+				boxC[i] = (int) (Math.random() * 10) + 1;
+			}
+		}
+		for (int i = 0; i < boxD.length; i++) {
+
+			nullFlag = (int) (Math.random() * 10) % 4;
+			if (nullFlag == 0) {
+				boxD[i] = 0;
+			} else {
+				boxD[i] = (int) (Math.random() * 10) + 1;
+			}
+		}
+		for (int i = 0; i < boxE.length; i++) {
+
+			nullFlag = (int) (Math.random() * 10) % 4;
+			if (nullFlag == 0) {
+				boxE[i] = 0;
+			} else {
+				boxE[i] = (int) (Math.random() * 10) + 1;
+			}
+		}
+		//		int[] MQArrayC = new int[5];
+		//		int[] MQArrayD = new int[5];
+		//		int[] MQArrayE = new int[5];
+		//
+		//		int[][] MQArrayAll = new int[3][5];
+		//		MQArrayAll[0] = MQArrayC;
+		//		MQArrayAll[1] = MQArrayD;
+		//		MQArrayAll[2] = MQArrayE;
+		//
+		//		for (int i = 0; i < MQArrayAll.length; i++) {
+		//			for (int j = 0; j < MQArrayAll[0].length; j++) {
+		//				int rand = (int) (Math.random() * 10) % 4;
+		//				if (rand == 0) {
+		//					MQArrayAll[i][j] = 0;
+		//				} else {
+		//					MQArrayAll[i][j] = (int) (Math.random() * 10) % 10 + 1;
+		//				}
+		//			}
+		//		}
 
 		System.out.println("E主任：");
 		System.out.println("MQ運送から預かった荷物の確認をお願いします。\n");
@@ -76,21 +126,35 @@ public class WarehouseManager {
 
 		System.out.print("C...");
 
-
 		//ここに配列Cの要素をすべて出力する処理を記述する。
-
-
+		for (int i = 0; i < boxC.length; i++) {
+			if (i == (boxC.length - 1)) {
+				System.out.print(boxC[i]);
+			} else {
+				System.out.print(boxC[i] + ",");
+			}
+		}
 		System.out.print("\n\nD...");
 
-
 		//ここに配列Dの要素をすべて出力する処理を記述する。
-
+		for (int i = 0; i < boxD.length; i++) {
+			if (i == (boxD.length - 1)) {
+				System.out.print(boxD[i]);
+			} else {
+				System.out.print(boxD[i] + ",");
+			}
+		}
 
 		System.out.print("\n\nE...");
 
-
 		//ここに配列Eの要素をすべて出力する処理を記述する。
-
+		for (int i = 0; i < boxE.length; i++) {
+			if (i == (boxE.length - 1)) {
+				System.out.print(boxE[i]);
+			} else {
+				System.out.print(boxE[i] + ",");
+			}
+		}
 
 		System.out.println("\n\nです。\n");
 
