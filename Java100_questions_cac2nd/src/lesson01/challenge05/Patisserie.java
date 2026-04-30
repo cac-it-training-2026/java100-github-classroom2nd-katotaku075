@@ -29,6 +29,31 @@
 
 package lesson01.challenge05;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Patisserie {
+	public static void main(String[] args) throws IOException {
+
+		System.out.println("それぞれ何個ずつ買いますか？");
+
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+		String str1 = reader.readLine();
+		int num1 = Integer.parseInt(str1);
+		String str2 = reader.readLine();
+		int num2 = Integer.parseInt(str2);
+		String str3 = reader.readLine();
+		int num3 = Integer.parseInt(str3);
+
+		System.out.println("シトロンを" + num1 + "個");
+		System.out.println("ショコラを" + num2 + "個");
+		System.out.println("ピスタチオを" + num3 + "個");
+		System.out.println("合計個数　　　" + (num1 + num2 + num3) + "個");
+		System.out.println("合計金額　" + (num1 * 250 + num2 * 280 + num3 * 320) + "円");
+		System.out.println("をお買い上げですね。\n承りました。");
+
+	}
 
 }

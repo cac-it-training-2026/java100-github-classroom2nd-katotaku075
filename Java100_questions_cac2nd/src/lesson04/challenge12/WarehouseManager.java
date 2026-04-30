@@ -99,9 +99,38 @@ public class WarehouseManager {
 
 		System.out.println("\n\nでした。直してきます...\n");
 
-
 		//ここに適切な値の挿入処理を記述する
+		for (int i = 0; i < wonderfulArray.length; i++) {
 
+			if (wonderfulArray[i] == 0) {//0が入っている部分を探す
+				do {//0が入っていたらランダム代入（１～５）を行う
+					loopFlag = false;//重複なしで数を代入するシステムを活用し、同配列の要素と被らないかを調べるシステムを作る。
+					insertNum = (int) (Math.random() * 10) % 5 + 1;
+					for (int j = 0; j < wonderfulArray.length; j++) {
+						if (wonderfulArray[j] == insertNum) {
+							loopFlag = true;
+							break;//同配列要素と数字が被ったらランダム代入からやり直し
+						}
+					}
+					if (!loopFlag) {//同配列要素と一回も被らなかった場合、
+						wonderfulArray[i] = insertNum;//wonderfulArray[i]に代入
+					}
+				} while (loopFlag);
+			}
+		}
+
+		//		int targetIndex = 0;
+		//		int totalPoint = 0;
+		//
+		//		for (int i = 0; i < wonderfulArray.length; i++) {
+		//			if (wonderfulArray[i] == 0) {
+		//				targetIndex = i;
+		//			} else {
+		//				totalPoint += wonderfulArray[i];
+		//			}
+		//		}
+		//
+		//		wonderfulArray[targetIndex] = (15 - totalPoint);
 
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");

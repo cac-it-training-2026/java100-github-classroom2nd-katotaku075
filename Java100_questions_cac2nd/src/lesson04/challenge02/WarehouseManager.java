@@ -95,21 +95,23 @@ public class WarehouseManager {
 
 		System.out.print("データ型を選んでください（1...文字、2...文字列、3...数値）＞");
 
-
 		//ここに入力処理を記述する。
-
+		String DataFlag = br.readLine();
+		int DataChoice = Integer.parseInt(DataFlag);
 
 		System.out.print("\n要素数を選んでください（1...1個、2...2個、3...3個）＞");
 
-
 		//ここに入力処理を記述する。
-
+		String LenFlag = br.readLine();
+		int LenChoice = Integer.parseInt(LenFlag);
 
 		boolean errFlag = false;
 
-
 		//ここに入力値の範囲チェック処理を記述する。
-
+		if (DataChoice <= 3 && 1 <= DataChoice && LenChoice <= 3 && 1 <= LenChoice) {
+		} else {
+			errFlag = true;
+		}
 
 		if (!errFlag) {
 			System.out.println("\nZ先輩：");
@@ -126,10 +128,54 @@ public class WarehouseManager {
 			String[] strArray = null;
 			int[] intArray = null;
 
-
 			//ここに入力値による分岐および配列要素数の確定、
 			//値の代入処理を記述する。
+			if (DataChoice == 1) {
 
+				charArray = new char[LenChoice];
+				for (int i = 0; i < LenChoice; i++) {
+					if (i == 0) {
+						charArray[0] = 'A';
+					}
+					if (i == 1) {
+						charArray[1] = 'B';
+					}
+					if (i == 2) {
+						charArray[2] = 'C';
+					}
+				}
+
+			} else if (DataChoice == 2) {
+
+				strArray = new String[LenChoice];
+				for (int i = 0; i < LenChoice; i++) {
+					if (i == 0) {
+						strArray[0] = "ABC";
+					}
+					if (i == 1) {
+						strArray[1] = "DEF";
+					}
+					if (i == 2) {
+						strArray[2] = "GHI";
+					}
+				}
+
+			} else if (DataChoice == 3) {
+
+				intArray = new int[LenChoice];
+				for (int i = 0; i < LenChoice; i++) {
+					if (i == 0) {
+						intArray[0] = 1;
+					}
+					if (i == 1) {
+						intArray[1] = 2;
+					}
+					if (i == 2) {
+						intArray[2] = 3;
+					}
+				}
+
+			}
 
 			System.out.println("Yさん：");
 			System.out.println("...出来ました。\n");
@@ -139,9 +185,14 @@ public class WarehouseManager {
 
 			System.out.println("Yさん：");
 
-
 			//ここに入力値による分岐および配列要素の表示処理を記述する。
-
+			if (DataChoice == 1) {
+				System.out.println(charArray[(LenChoice - 1)]);
+			} else if (DataChoice == 2) {
+				System.out.println(strArray[(LenChoice - 1)]);
+			} else if (DataChoice == 3) {
+				System.out.println(intArray[(LenChoice - 1)]);
+			}
 
 			System.out.println("です。\n");
 
